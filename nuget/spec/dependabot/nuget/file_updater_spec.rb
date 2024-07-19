@@ -203,7 +203,7 @@ RSpec.describe Dependabot::Nuget::FileUpdater do
               ReferencedProjectPaths: []
             }
           ],
-          DirectoryPackagesProps: nil,
+          ImportedFiles: [],
           GlobalJson: nil,
           DotNetToolsJson: nil
         }
@@ -286,7 +286,7 @@ RSpec.describe Dependabot::Nuget::FileUpdater do
               ReferencedProjectPaths: []
             }
           ],
-          DirectoryPackagesProps: nil,
+          ImportedFiles: [],
           GlobalJson: nil,
           DotNetToolsJson: nil
         }
