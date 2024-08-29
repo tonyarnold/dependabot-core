@@ -1,2 +1,2 @@
-**/.vs
-**/NuGetUpdater/artifacts
+helpers/lib/NuGetUpdater/.vs
+helpers/lib/NuGetUpdater/artifacts
