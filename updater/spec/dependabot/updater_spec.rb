@@ -623,7 +623,7 @@ RSpec.describe Dependabot::Updater do
           updater.run
 
           expect_update_checker_with_ignored_versions(
-            [">= 2.0.0, < 3", "> 1.1.0, < 1.2", ">= 1.2.a, < 2"],
+            [">= 2.0.0, < 3", "> 1.1.0, < 1.2", ">= 1.2.0, < 2"],
             dependency_matcher: having_attributes(name: "dummy-pkg-b")
           )
         end
