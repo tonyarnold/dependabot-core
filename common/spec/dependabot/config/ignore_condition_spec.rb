@@ -103,7 +103,7 @@ RSpec.describe Dependabot::Config::IgnoreCondition do
         end
 
         it "returns the expected range" do
-          expect(ignored_versions).to eq([">= 1.3.a, < 2"])
+          expect(ignored_versions).to eq([">= 1.3.0, < 2"])
         end
       end
 
@@ -117,7 +117,7 @@ RSpec.describe Dependabot::Config::IgnoreCondition do
         end
 
         it "returns the expected range" do
-          expect(ignored_versions).to eq([">= 2.a"])
+          expect(ignored_versions).to eq([">= 2.0"])
         end
       end
 
@@ -128,6 +128,10 @@ RSpec.describe Dependabot::Config::IgnoreCondition do
           expect_allowed(minor_upgrades)
           expect_ignored(patch_upgrades + major_upgrades)
           expect_allowed([dependency_version])
+        end
+
+        it "returns the expected range" do
+          expect(ignored_versions).to eq([">= 2.0", "> 1.2.3, < 1.3"])
         end
       end
 
@@ -144,7 +148,7 @@ RSpec.describe Dependabot::Config::IgnoreCondition do
           end
 
           it "returns the expected range" do
-            expect(ignored_versions).to eq([">= 2.a"])
+            expect(ignored_versions).to eq([">= 2.0"])
           end
         end
 
@@ -158,7 +162,7 @@ RSpec.describe Dependabot::Config::IgnoreCondition do
           end
 
           it "returns the expected range" do
-            expect(ignored_versions).to eq([">= 1.3.a, < 2"])
+            expect(ignored_versions).to eq([">= 1.3.0, < 2"])
           end
         end
 
@@ -190,7 +194,7 @@ RSpec.describe Dependabot::Config::IgnoreCondition do
           end
 
           it "returns the expected range" do
-            expect(ignored_versions).to eq([">= 2.a"])
+            expect(ignored_versions).to eq([">= 2.0"])
           end
         end
 
@@ -198,7 +202,7 @@ RSpec.describe Dependabot::Config::IgnoreCondition do
           let(:update_types) { ["version-update:semver-minor"] }
 
           it "returns the expected range" do
-            expect(ignored_versions).to eq([">= 1.1.a, < 2"])
+            expect(ignored_versions).to eq([">= 1.1.0, < 2"])
           end
         end
 
@@ -232,7 +236,7 @@ RSpec.describe Dependabot::Config::IgnoreCondition do
           end
 
           it "returns the expected range" do
-            expect(ignored_versions).to eq([">= 2.a"])
+            expect(ignored_versions).to eq([">= 2.0"])
           end
         end
 
@@ -246,7 +250,7 @@ RSpec.describe Dependabot::Config::IgnoreCondition do
           end
 
           it "returns the expected range" do
-            expect(ignored_versions).to eq([">= 1.3.a, < 2"])
+            expect(ignored_versions).to eq([">= 1.3.0, < 2"])
           end
         end
 
@@ -306,7 +310,7 @@ RSpec.describe Dependabot::Config::IgnoreCondition do
           end
 
           it "returns the expected range" do
-            expect(ignored_versions).to eq([">= 12.a"])
+            expect(ignored_versions).to eq([">= 12.0"])
           end
         end
       end

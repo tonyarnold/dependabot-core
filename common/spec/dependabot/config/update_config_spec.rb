@@ -68,7 +68,7 @@ RSpec.describe Dependabot::Config::UpdateConfig do
       end
 
       it "returns versions" do
-        expect(ignored_versions).to eq([">= 12.13.a, < 13", ">= 14.14.x, < 15"])
+        expect(ignored_versions).to eq([">= 12.13.0, < 13", ">= 14.14.x, < 15"])
       end
     end
 
@@ -87,7 +87,7 @@ RSpec.describe Dependabot::Config::UpdateConfig do
       end
 
       it "returns versions" do
-        expect(ignored_versions).to eq([">= 12.13.a, < 13"])
+        expect(ignored_versions).to eq([">= 12.13.0, < 13"])
       end
     end
 
@@ -106,7 +106,7 @@ RSpec.describe Dependabot::Config::UpdateConfig do
       end
 
       it "returns versions" do
-        expect(ignored_versions).to eq([">= 13.a", ">= 12.13.a, < 13"])
+        expect(ignored_versions).to eq([">= 13.0", ">= 12.13.0, < 13"])
       end
 
       context "with security_updates_only" do

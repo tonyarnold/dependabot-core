@@ -55,6 +55,7 @@ module Dependabot
       sig { params(dependency: Dependency).returns(T::Array[T.untyped]) }
       def versions_by_type(dependency)
         version = correct_version_for(dependency)
+
         return [] unless version
 
         semver = version.to_semver
@@ -88,7 +89,7 @@ module Dependabot
       def ignore_minor(version)
         parts = version.split(".")
         version_parts = parts.fill("0", parts.length...2)
-        lower_parts = version_parts.first(1) + [version_parts[1].to_i + 1] + ["a"]
+        lower_parts = version_parts.first(1) + [version_parts[1].to_i + 1] + ["0"]
         upper_parts = version_parts.first(0) + [version_parts[0].to_i + 1]
         lower_bound = ">= #{lower_parts.join('.')}"
         upper_bound = "< #{upper_parts.join('.')}"
@@ -99,7 +100,7 @@ module Dependabot
       sig { params(version: String).returns(T::Array[String]) }
       def ignore_major(version)
         version_parts = version.split(".")
-        lower_parts = [version_parts[0].to_i + 1] + ["a"]
+        lower_parts = [version_parts[0].to_i + 1] + ["0"]
         lower_bound = ">= #{lower_parts.join('.')}"
 
         [lower_bound]
